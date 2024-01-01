@@ -8,7 +8,7 @@ public:
         sort(s.begin(), s.end());
         int x = 0 , y =0 ;
         
-        while (x<s.size() and y<g.size()){
+        while (x<s.size() && y<g.size()){
           if(s[x] >= g[y]){
             y++ ;
             x++ ;
