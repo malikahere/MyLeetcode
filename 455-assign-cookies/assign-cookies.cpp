@@ -4,19 +4,19 @@ public:
         if (s.size()==0 or g.size()==0){
             return 0;
         }
+        
         sort(g.begin() , g.end());
         sort(s.begin(), s.end());
-        int x = g.size()-1;
-        int y = s.size()-1;
-        int ans = 0;
-        while (x>=0 and y>=0){
+        int x = 0 , y =0 , ans=0;
+        
+        while (y<s.size() and x<g.size()){
           if(s[y] >= g[x]){
             ans++ ;
-            y-- ;
-            x-- ;
+            x++ ;
+            y++;
           }
           else{
-              x-- ;
+              y++ ;
           }
         }
 
