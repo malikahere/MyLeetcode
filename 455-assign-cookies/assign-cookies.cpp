@@ -13,7 +13,6 @@ public:
             y++;
           }
           else y++ ;
-
         }
       return ans;
     }
