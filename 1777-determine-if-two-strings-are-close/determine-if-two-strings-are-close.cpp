@@ -8,7 +8,7 @@ public:
             s1.insert(word1[i]);
             s2.insert(word2[i]);
         }
-         map<char,int>mp1;
+        map<char,int>mp1;
         map<char,int>mp2;
 
         for(auto i:word1) mp1[i]++;
