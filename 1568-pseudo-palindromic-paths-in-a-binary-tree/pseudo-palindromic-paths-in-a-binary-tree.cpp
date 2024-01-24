@@ -11,23 +11,31 @@
  */
 class Solution {
 public:
-    int pseudoPalindromicPaths (TreeNode* root) {
-          int count=0;
-        vector<int>v(10,0);
-        pseudo(root,v,count);
-        return count;
+    int count =0;
+    unordered_map<int,int>mp ;
+    void dfs(TreeNode* root , int odd){
+      if(root==NULL) return;
+      mp[root->val]++;
+      if( mp[root->val]%2!=0){
+          odd++;
+      }
+      else{
+          odd--;
+      }
+      
+      if(root->left==NULL and root->right==NULL and (odd==1 or odd==0)){
+          count++;
+       }
+
+       
+       dfs(root->left, odd);
+       dfs(root->right, odd);
+        mp[root->val]--;
+
+
     }
-    void pseudo(TreeNode* root,vector<int> n,int &count){
-        if(root==NULL)return;
-        n[root->val]++;
-        pseudo(root->left,n,count);
-        pseudo(root->right,n,count);
-        if(root->left==NULL and root->right==NULL){
-            int flag=0;
-            for(int i=1;i<=9;i++)
-                if(n[i]%2!=0)flag++;
-            if(flag==1 or flag==0)count++;
-        }
-        n[root->val]--;
+    int pseudoPalindromicPaths (TreeNode* root) {
+        dfs(root , 0);
+        return count;
     }
 };
