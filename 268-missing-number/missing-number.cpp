@@ -3,15 +3,18 @@ public:
     int missingNumber(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         int n = nums.size();
+        int expSum = n*(n+1)/2 ;
+        int sum=0;
         for (int i = 0; i < n; i++) {
-            if (nums[n - 1] == n) {
-                if (nums[i] != i) {
-                    return i;
-                }
-            } else {
-                return n;
+              sum = sum+nums[i] ;
+            }
+            if(sum!= expSum){
+                return expSum - sum ;
+            }
+            else {
+                return 0;
             }
         }
-        return 0;
-    }
+        
+    
 };
