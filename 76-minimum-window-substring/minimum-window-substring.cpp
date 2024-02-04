@@ -1,23 +1,23 @@
 class Solution {
 public:
     string minWindow(string s, string t) {
-         unordered_map<char, int> required, window;
+         unordered_map<char, int> req, window;
     int left = 0, right = 0, formed = 0;
     int minLen = INT_MAX, minStart = 0;
     
     for (char c : t) {
-        required[c]++;
+        req[c]++;
     }
     
     while (right < s.length()) {
         char c = s[right];
         window[c]++;
         
-        if (required.find(c) != required.end() && window[c] == required[c]) {
+        if (req.find(c) != req.end() && window[c] == req[c]) {
             formed++;
         }
         
-        while (formed == required.size() && left <= right) {
+        while (formed == req.size() && left <= right) {
             if (right - left + 1 < minLen) {
                 minLen = right - left + 1;
                 minStart = left;
@@ -25,7 +25,7 @@ public:
             
             char leftChar = s[left];
             window[leftChar]--;
-            if (required.find(leftChar) != required.end() && window[leftChar] < required[leftChar]) {
+            if (req.find(leftChar) != req.end() && window[leftChar] < req[leftChar]) {
                 formed--;
             }
             
