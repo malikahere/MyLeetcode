@@ -11,10 +11,9 @@ public:
             if(sum!= expSum){
                 return expSum - sum ;
             }
-            else {
-                return 0;
-            }
+             return 0;
         }
+       
         
     
 };
