@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        if(head==NULL){
+        if(head==NULL or head->next == NULL){
             return head;
         }
         ListNode *a = head , *b = head;
