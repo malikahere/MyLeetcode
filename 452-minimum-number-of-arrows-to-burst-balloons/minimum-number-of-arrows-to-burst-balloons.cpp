@@ -6,7 +6,7 @@ public:
         int answer = 1;
         int end = points[0][1];
 
-        for (auto point: points)
+        for (vector<int>& point: points)
         {
             if (point[0] > end)
             {
