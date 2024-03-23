@@ -15,7 +15,7 @@ public:
             return head;
         }
         ListNode *a = head , *b = head;
-        while(b and b->next){
+        while(b!=NULL and b->next!=NULL){
             a = a->next;
             b = b->next->next ;
         }
