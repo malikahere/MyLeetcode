@@ -7,9 +7,9 @@ public:
     while (right < n) {
       product *= nums[right];
       while (product >= k) product /= nums[left++];
-      count += 1 + (right - left);
+      count +=(right - left);
       right++;
     }
-    return count;
+    return count+n;
     }
 };
